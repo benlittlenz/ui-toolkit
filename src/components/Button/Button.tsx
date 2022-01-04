@@ -1,14 +1,21 @@
 import React from 'react';
 
+import { StyledButton } from './styles';
 import { ButtonProps } from './types';
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant, size, isFullWidth, ...props }, ref) => {
-    console.log(variant, size, isFullWidth);
     return (
-      <button ref={ref} type="button" {...props}>
+      <StyledButton
+        ref={ref}
+        type="button"
+        variant={variant}
+        size={size}
+        isFullWidth={isFullWidth}
+        {...props}
+      >
         {children}
-      </button>
+      </StyledButton>
     );
   }
 );
