@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import { themeColors } from '../../theme';
 
+import { TextareaProps } from './types';
+
 export const StyledLabel = styled.label`
   font-weight: 500;
   margin-bottom: 0.4rem;
@@ -17,4 +19,10 @@ export const StyledInput = styled.input`
   outline: 0;
   padding: 0.25rem 0.75rem;
   width: 100%;
+`;
+
+export const StyledTextArea = styled(StyledInput as 'textarea').attrs({
+  as: 'textarea',
+})<TextareaProps>`
+  resize: ${(props) => !props.isResizable && 'none'};
 `;

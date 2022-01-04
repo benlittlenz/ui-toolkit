@@ -5,11 +5,8 @@ import { useUniqueId } from '../../hooks/useUniqueId';
 import { FieldContext } from './context';
 import { Input } from './Input';
 import { Label } from './Label';
-
-interface FieldComposition {
-  Label: typeof Label;
-  Input: typeof Input;
-}
+import { Textarea } from './Textarea';
+import { FieldComposition } from './types';
 
 export const Field: React.FC & FieldComposition = ({ children }) => {
   const id = useUniqueId();
@@ -18,3 +15,4 @@ export const Field: React.FC & FieldComposition = ({ children }) => {
 
 Field.Label = Label;
 Field.Input = Input;
+Field.Textarea = Textarea;
