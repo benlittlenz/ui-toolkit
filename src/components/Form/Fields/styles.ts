@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { themeColors } from '../../theme';
+import { themeColors } from '../../../theme';
 
 import { TextareaProps } from './types';
 
