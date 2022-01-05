@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
-import { FieldContext } from './context';
-import { StyledInput } from './styles';
+import { FieldContext } from '../context';
+import { StyledInput } from '../styles';
 
 export const Input = React.forwardRef<HTMLInputElement, React.ComponentPropsWithoutRef<'input'>>(
   (props, ref) => {
