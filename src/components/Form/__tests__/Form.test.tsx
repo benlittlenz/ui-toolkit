@@ -51,3 +51,39 @@ test('it should render and submit a basic form', async () => {
 
   await waitFor(() => expect(handleSubmit).toHaveBeenCalledWith(testData, expect.anything()));
 });
+
+test('it should fail submission if validation fails', async () => {
+  const handleSubmit = jest.fn();
+  render(
+    <Form<typeof testData, typeof schema> id="test-form" onSubmit={handleSubmit} schema={schema}>
+      {({ register, formState }) => (
+        <>
+          <Field>
+            <Field.Label>Title</Field.Label>
+            <Field.Input
+              placeholder="Title"
+              error={formState.errors['title']}
+              registration={register('title')}
+            />
+          </Field>
+          <Field>
+            <Field.Label>Body</Field.Label>
+            <Field.Input
+              placeholder="Body"
+              error={formState.errors['body']}
+              registration={register('body')}
+            />
+          </Field>
+          <Button name="Submit" type="submit">
+            Submit
+          </Button>
+        </>
+      )}
+    </Form>
+  );
+  userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+  await screen.findAllByRole(/alert/i, { name: /required/i });
+
+  expect(handleSubmit).toHaveBeenCalledTimes(0);
+});

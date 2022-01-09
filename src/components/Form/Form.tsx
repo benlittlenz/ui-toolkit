@@ -19,7 +19,6 @@ export const Form = <
   id,
   schema,
 }: FormProps<TFormValues, Schema>) => {
-  console.log('schema', schema);
   const methods = useForm<TFormValues>({ resolver: schema && zodResolver(schema) });
   return (
     <form id={id} onSubmit={methods.handleSubmit(onSubmit)}>
