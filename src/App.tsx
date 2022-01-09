@@ -24,15 +24,24 @@ function App() {
         onSubmit={(vals) => console.log('SUBMITTED', vals)}
         schema={schema}
       >
-        {({ register }) => (
+        {({ register, formState }) => (
           <>
+            {JSON.stringify(formState)}
             <Field>
               <Field.Label>Title</Field.Label>
-              <Field.Input placeholder="Title" registration={register('title')} />
+              <Field.Input
+                placeholder="Title"
+                error={formState.errors['title']}
+                registration={register('title')}
+              />
             </Field>
             <Field>
               <Field.Label>Body</Field.Label>
-              <Field.Input placeholder="Body" registration={register('body')} />
+              <Field.Input
+                placeholder="Body"
+                error={formState.errors['body']}
+                registration={register('body')}
+              />
             </Field>
           </>
         )}

@@ -5,6 +5,7 @@ import { themeColors } from '../../../theme';
 import { TextareaProps } from './types';
 
 export const StyledLabel = styled.label`
+  display: "inline-block",
   font-weight: 500;
   margin-bottom: 0.4rem;
 `;

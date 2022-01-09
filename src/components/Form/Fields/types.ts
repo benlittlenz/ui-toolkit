@@ -1,4 +1,4 @@
-import { UseFormRegisterReturn } from 'react-hook-form';
+import { UseFormRegisterReturn, FieldError } from 'react-hook-form';
 
 import { Input } from './Input/Input';
 import { Label } from './Label/Label';
@@ -15,8 +15,10 @@ export interface FieldComposition {
 export interface TextareaProps extends React.ComponentPropsWithoutRef<'textarea'> {
   isResizable?: boolean;
   registration?: Partial<UseFormRegisterReturn>;
+  error?: FieldError | undefined;
 }
 
 export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   registration?: Partial<UseFormRegisterReturn>;
+  error?: FieldError | undefined;
 }

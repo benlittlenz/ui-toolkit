@@ -1,4 +1,4 @@
-// import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import * as React from 'react';
 import { useForm, UseFormReturn, SubmitHandler } from 'react-hook-form';
 import { ZodType, ZodTypeDef } from 'zod';
@@ -20,7 +20,7 @@ export const Form = <
   schema,
 }: FormProps<TFormValues, Schema>) => {
   console.log('schema', schema);
-  const methods = useForm<TFormValues>();
+  const methods = useForm<TFormValues>({ resolver: schema && zodResolver(schema) });
   return (
     <form id={id} onSubmit={methods.handleSubmit(onSubmit)}>
       {children(methods)}
