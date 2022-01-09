@@ -1,7 +1,6 @@
 import React from 'react';
 import * as z from 'zod';
 
-import './App.css';
 import { Button } from './components/Button/Button';
 import { Field } from './components/Form/Fields/Field';
 import { Form } from './components/Form/Form';
@@ -26,7 +25,6 @@ function App() {
       >
         {({ register, formState }) => (
           <>
-            {JSON.stringify(formState)}
             <Field>
               <Field.Label>Title</Field.Label>
               <Field.Input
