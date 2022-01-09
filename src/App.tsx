@@ -24,15 +24,15 @@ function App() {
         onSubmit={(vals) => console.log('SUBMITTED', vals)}
         schema={schema}
       >
-        {() => (
+        {({ register }) => (
           <>
             <Field>
               <Field.Label>Title</Field.Label>
-              <Field.Input placeholder="Title" />
+              <Field.Input placeholder="Title" registration={register('title')} />
             </Field>
             <Field>
               <Field.Label>Body</Field.Label>
-              <Field.Input placeholder="Body" />
+              <Field.Input placeholder="Body" registration={register('body')} />
             </Field>
           </>
         )}
