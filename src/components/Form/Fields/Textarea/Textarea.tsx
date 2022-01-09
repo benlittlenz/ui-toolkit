@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 
 import { FieldContext } from '../context';
-import { StyledTextArea } from '../styles';
-import { TextareaProps } from '../types';
+
+import { StyledTextArea } from './styles';
+import { TextareaProps } from './types';
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ isResizable, registration, ...props }, ref) => {
