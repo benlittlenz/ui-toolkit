@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Table = styled.div`
+export const Table = styled.div`
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -9,5 +9,3 @@ const Table = styled.div`
   height: 100%;
   max-width: 100%;
 `;
-
-export default Table;

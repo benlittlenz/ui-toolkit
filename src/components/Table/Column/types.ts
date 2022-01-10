@@ -2,6 +2,6 @@ export type TableColumn = {
   name?: string | number | React.ReactNode;
 };
 
-export type TableColumnProps = {
+export type ColumnProps = {
   column: TableColumn;
 };

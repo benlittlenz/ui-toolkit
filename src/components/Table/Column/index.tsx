@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { TableColumnProps } from './types';
+import { ColumnProps } from './types';
 
 const ColumnStyled = styled.div`
   display: flex;
@@ -8,6 +8,6 @@ const ColumnStyled = styled.div`
   width: 100%;
 `;
 
-export const TableColumn = ({ column }: TableColumnProps): JSX.Element => {
+export const Column = ({ column }: ColumnProps): JSX.Element => {
   return <ColumnStyled>{column.name}</ColumnStyled>;
 };
