@@ -14,22 +14,45 @@ export const SrOnly = styled.span`
   borderwidth: 0;
 `;
 
-export const SpinnerWrapper = styled.div<SpinnerProps>`
-  height: ${(props) => getSizeVariant(props.size)};
+export const SpinnerWrapper = styled.svg<SpinnerProps>`
+  height: ${(props) => {
+    console.log('SIZE: ', getSizeVariant(props.size));
+    return getSizeVariant(props.size);
+  }};
   width: ${(props) => getSizeVariant(props.size)};
+
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
-const getSizeVariant = ({ size }: any) => {
-  switch (size) {
-    case size === 'small':
-      return '1rem';
-    case size === 'medium':
-      return '2rem';
-    case size === 'large':
-      return '4rem';
-    case size === 'extralarge':
-      return '8rem';
-    default:
-      return '2rem';
+const getSizeVariant = (size: any) => {
+  console.log('variant', size);
+  if (size === 'small') {
+    return '1rem';
+  } else if (size === 'medium') {
+    return '2rem';
+  } else if (size === 'large') {
+    return '4rem';
   }
+  return '8rem';
+  // switch (size) {
+  //   case size === 'small':
+  //     return '1rem';
+  //   case size === 'medium':
+  //     return '2rem';
+  //   case size === 'large':
+  //     return '4rem';
+  //   case size === 'extralarge':
+  //     return '8rem';
+  //   default:
+  //     return '2rem';
+  // }
 };
