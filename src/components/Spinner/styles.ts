@@ -15,8 +15,8 @@ export const SrOnly = styled.span`
 `;
 
 export const SpinnerWrapper = styled.svg<SpinnerProps>`
+  margin-right: 5px;
   height: ${(props) => {
-    console.log('SIZE: ', getSizeVariant(props.size));
     return getSizeVariant(props.size);
   }};
   width: ${(props) => getSizeVariant(props.size)};
@@ -34,7 +34,6 @@ export const SpinnerWrapper = styled.svg<SpinnerProps>`
 `;
 
 const getSizeVariant = (size: any) => {
-  console.log('variant', size);
   if (size === 'small') {
     return '1rem';
   } else if (size === 'medium') {
@@ -43,16 +42,4 @@ const getSizeVariant = (size: any) => {
     return '4rem';
   }
   return '8rem';
-  // switch (size) {
-  //   case size === 'small':
-  //     return '1rem';
-  //   case size === 'medium':
-  //     return '2rem';
-  //   case size === 'large':
-  //     return '4rem';
-  //   case size === 'extralarge':
-  //     return '8rem';
-  //   default:
-  //     return '2rem';
-  // }
 };

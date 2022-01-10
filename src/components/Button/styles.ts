@@ -6,6 +6,8 @@ import { ButtonProps } from './types';
 
 export const StyledButton = styled.button<ButtonProps>`
   display: ${(props) => (props.isFullWidth ? 'flex' : 'inline-flex')};
+  justify-content: center;
+  align-items: center;
   width: ${(props) => props.isFullWidth && '100%'};
   cursor: pointer;
   border: 0;
@@ -30,7 +32,6 @@ export const StyledButton = styled.button<ButtonProps>`
     return sizeVariants['large'].fontSize;
   }};
   line-height: 1.5;
-  border-radius: 0;
   transition: all 0.15s ease-in-out;
 
   &:focus {

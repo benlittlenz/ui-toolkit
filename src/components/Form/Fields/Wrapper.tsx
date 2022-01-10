@@ -8,7 +8,7 @@ type FieldWrapperProps = {
 };
 
 const Wrapper = styled.div`
-  margin-top: 4px;
+  margin: 6px 0 8px 0;
 `;
 
 const ErrorMessage = styled.div`
