@@ -4,6 +4,7 @@ import { Body } from './Body';
 import { Column } from './Column';
 import { defaultProps } from './defaultProps';
 import { Header, HeaderRow } from './Header';
+import { Pagination } from './Pagination';
 import { TableRow } from './Row';
 import { Table } from './Table';
 import { TableProps } from './types';
@@ -13,11 +14,11 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     data = defaultProps.data,
     columns = defaultProps.columns,
     keyField = defaultProps.keyField,
-    // pagination = defaultProps.pagination,
+    pagination = defaultProps.pagination,
     // paginationTotalRows = defaultProps.paginationTotalRows,
-    // paginationDefaultPage = defaultProps.paginationDefaultPage,
+    paginationDefaultPage = defaultProps.paginationDefaultPage,
     // paginationResetDefaultPage = defaultProps.paginationResetDefaultPage,
-    // paginationPerPage = defaultProps.paginationPerPage,
+    paginationPerPage = defaultProps.paginationPerPage,
     // paginationRowsPerPageOptions = defaultProps.paginationRowsPerPageOptions,
     // paginationIconLastPage = defaultProps.paginationIconLastPage,
     // paginationIconFirstPage = defaultProps.paginationIconFirstPage,
@@ -31,9 +32,14 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
   }, [data]);
 
   const tableRows = React.useMemo(() => {
-    // Todo: Calculate first and last index;
-    return sortedData.slice(0, 25);
-  }, [sortedData]);
+    if (pagination) {
+      const lastIndex = paginationDefaultPage * paginationPerPage;
+      const firstIndex = lastIndex - paginationPerPage;
+
+      return sortedData.slice(firstIndex, lastIndex);
+    }
+    return sortedData;
+  }, [sortedData, pagination, paginationDefaultPage, paginationPerPage]);
   return (
     <div>
       <Table role="table">
@@ -59,6 +65,7 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
           })}
         </Body>
       </Table>
+      {data.length > 0 && pagination && <Pagination />}
     </div>
   );
 }
