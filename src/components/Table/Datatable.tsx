@@ -87,6 +87,7 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
         <Pagination
           currentPage={currentPage}
           rowsPerPage={rowsPerPage}
+          rowCount={sortedData.length}
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       )}

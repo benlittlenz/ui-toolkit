@@ -24,3 +24,12 @@ export const Button = styled.button`
   user-select: none;
   border: none;
 `;
+
+const Span = styled.span`
+  flex-shrink: 1;
+  user-select: none;
+`;
+
+export const Range = styled(Span)`
+  margin: 0 24px;
+`;

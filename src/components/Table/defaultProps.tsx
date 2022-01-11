@@ -18,8 +18,8 @@ export const defaultProps = {
   paginationRowsPerPageOptions: [10, 15, 20, 25, 30],
   paginationComponent: null,
   paginationComponentOptions: {},
-  paginationIconFirstPage: <ChevronDoubleLeftIcon style={{ height: '8px', width: '8px' }} />,
-  paginationIconLastPage: <ChevronDoubleRightIcon style={{ height: '8px', width: '8px' }} />,
-  paginationIconNext: <ChevronLeftIcon style={{ height: '8px', width: '8px' }} />,
-  paginationIconPrevious: <ChevronRightIcon style={{ height: '8px', width: '8px' }} />,
+  paginationIconFirstPage: <ChevronDoubleLeftIcon style={{ height: '12px', width: '12px' }} />,
+  paginationIconLastPage: <ChevronDoubleRightIcon style={{ height: '12px', width: '12px' }} />,
+  paginationIconNext: <ChevronLeftIcon style={{ height: '12px', width: '12px' }} />,
+  paginationIconPrevious: <ChevronRightIcon style={{ height: '12px', width: '12px' }} />,
 };

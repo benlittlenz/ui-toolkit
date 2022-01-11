@@ -2,24 +2,31 @@ import * as React from 'react';
 
 import { defaultProps } from '../defaultProps';
 import { PaginationSelect } from '../Select';
+import { getNumberOfPages } from '../utils';
 
-import { Button, PageList, PaginationWrapper } from './styles';
+import { Button, Range, PageList, PaginationWrapper } from './styles';
 import { PaginationProps } from './types';
 
 export function Pagination({
   currentPage,
   rowsPerPage,
+  rowCount,
   paginationIconFirstPage = defaultProps.paginationIconFirstPage,
   paginationIconLastPage = defaultProps.paginationIconLastPage,
   paginationIconNext = defaultProps.paginationIconNext,
   paginationIconPrevious = defaultProps.paginationIconPrevious,
   onChangeRowsPerPage,
 }: PaginationProps): JSX.Element {
-  console.log(currentPage, rowsPerPage);
+  const lastIndex = currentPage * rowsPerPage;
+  const firstIndex = lastIndex - rowsPerPage + 1;
+
+  const range =
+    currentPage === getNumberOfPages(rowCount, rowsPerPage)
+      ? `${firstIndex}-${rowCount} of ${rowCount}`
+      : `${firstIndex}-${lastIndex} of ${rowCount}`;
 
   const handleRowChange = React.useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      console.log('change');
       return onChangeRowsPerPage(Number(e.target.value), currentPage);
     },
     [currentPage, onChangeRowsPerPage]
@@ -39,6 +46,7 @@ export function Pagination({
       >
         {selectOptions}
       </PaginationSelect>
+      <Range>{range}</Range>
       <PageList>
         <Button id="pagination-first-page" type="button" aria-label="First Page">
           {paginationIconFirstPage}

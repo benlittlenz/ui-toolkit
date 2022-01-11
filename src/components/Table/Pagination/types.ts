@@ -1,6 +1,7 @@
 export type PaginationProps = {
   currentPage: number;
   rowsPerPage: number;
+  rowCount: number;
   paginationIconLastPage?: React.ReactNode;
   paginationIconFirstPage?: React.ReactNode;
   paginationIconNext?: React.ReactNode;
