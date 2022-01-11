@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Body } from './Body';
 import { Column } from './Column';
 import { defaultProps } from './defaultProps';
 import { Header, HeaderRow } from './Header';
 import { Pagination } from './Pagination';
+import { tableReducer } from './reducer';
 import { TableRow } from './Row';
 import { Table } from './Table';
-import { TableProps } from './types';
+import { Action, TableProps, TableState } from './types';
 import { getNumberOfPages } from './utils';
 
 export function DataTable<T>(props: TableProps<T>): JSX.Element {
@@ -29,8 +30,12 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     // paginationComponentOptions = defaultProps.paginationComponentOptions,
   } = props;
 
-  const [currentPage, setCurrentPage] = useState(paginationDefaultPage);
-  const [rowsPerPage, setRowsPerPage] = useState(paginationPerPage);
+  const [{ currentPage, rowsPerPage }, dispatch] = React.useReducer<
+    React.Reducer<TableState, Action>
+  >(tableReducer, {
+    currentPage: paginationDefaultPage,
+    rowsPerPage: paginationPerPage,
+  });
 
   const sortedData = React.useMemo(() => {
     return [...data].sort();
@@ -53,14 +58,20 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
       const updatedPage = getNumberOfPages(rowCount, newRowsPerPage);
       const recalculatedPage = Math.min(currentPage, updatedPage);
 
-      setCurrentPage(recalculatedPage);
-      setRowsPerPage(newRowsPerPage);
+      dispatch({
+        type: 'CHANGE_ROWS_PER_PAGE',
+        page: recalculatedPage,
+        rowsPerPage: newRowsPerPage,
+      });
     },
     [currentPage, tableRows.length]
   );
 
   const handlePageChange = React.useCallback((page: number) => {
-    setCurrentPage(page);
+    dispatch({
+      type: 'CHANGE_PAGE',
+      page,
+    });
   }, []);
   return (
     <div>

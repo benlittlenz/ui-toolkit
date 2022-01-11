@@ -38,3 +38,21 @@ export type TableProps<T> = {
 };
 
 export type TableRow = Record<string, unknown>;
+
+export type TableState = {
+  currentPage: number;
+  rowsPerPage: number;
+};
+
+export interface PaginationPageAction {
+  type: 'CHANGE_PAGE';
+  page: number;
+}
+
+export interface PaginationRowsPerPageAction {
+  type: 'CHANGE_ROWS_PER_PAGE';
+  rowsPerPage: number;
+  page: number;
+}
+
+export type Action = PaginationRowsPerPageAction | PaginationPageAction;
