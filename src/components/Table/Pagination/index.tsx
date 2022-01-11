@@ -19,11 +19,15 @@ export function Pagination({
 }: PaginationProps): JSX.Element {
   const lastIndex = currentPage * rowsPerPage;
   const firstIndex = lastIndex - rowsPerPage + 1;
-
+  const numberOfPages = getNumberOfPages(rowCount, rowsPerPage);
+  const disabledLesser = currentPage === 1;
+  const disabledGreater = currentPage === numberOfPages;
+  console.log('currentPage', currentPage);
+  console.log('numberOfPages', numberOfPages);
   const range =
-    currentPage === getNumberOfPages(rowCount, rowsPerPage)
-      ? `${firstIndex}-${rowCount} of ${rowCount}`
-      : `${firstIndex}-${lastIndex} of ${rowCount}`;
+    currentPage === numberOfPages
+      ? `${currentPage} of ${numberOfPages}`
+      : `${firstIndex} of ${rowCount}`;
 
   const handleRowChange = React.useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -48,17 +52,43 @@ export function Pagination({
       </PaginationSelect>
       <Range>{range}</Range>
       <PageList>
-        <Button id="pagination-first-page" type="button" aria-label="First Page">
+        <Button
+          id="pagination-first-page"
+          type="button"
+          aria-label="First Page"
+          aria-disabled={disabledLesser}
+          disabled={disabledLesser}
+        >
           {paginationIconFirstPage}
         </Button>
-        <Button id="pagination-next-page" type="button" aria-label="Next Page">
+        <Button
+          id="pagination-next-page"
+          type="button"
+          aria-label="Next Page"
+          aria-disabled={disabledLesser}
+          disabled={disabledLesser}
+        >
           {paginationIconNext}
         </Button>
-        <Button id="pagination-previous-page" type="button" aria-label="Previous Page">
+        <Button
+          id="pagination-previous-page"
+          type="button"
+          aria-label="Previous Page"
+          aria-disabled={disabledGreater}
+          // onClick={handleNext}
+          disabled={disabledGreater}
+        >
           {paginationIconPrevious}
         </Button>
 
-        <Button id="pagination-last-page" type="button" aria-label="Last Page">
+        <Button
+          id="pagination-last-page"
+          type="button"
+          aria-label="Last Page"
+          aria-disabled={disabledGreater}
+          // onClick={handleNext}
+          disabled={disabledGreater}
+        >
           {paginationIconLastPage}
         </Button>
       </PageList>
