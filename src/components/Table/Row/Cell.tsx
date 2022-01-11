@@ -12,7 +12,6 @@ interface CellProps<T> {
 }
 
 export function TableCell<T>({ id, column, row, rowIndex }: CellProps<T>): JSX.Element {
-  console.log(column.cell);
   return (
     <CellStyle id={id} role="grid-cell" renderAsCell={!!column.cell}>
       <div>{getProperty(row, column.selector, column.format, rowIndex)}</div>

@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { RowCheckbox } from '../Checkbox/RowCheckbox';
+import { SingleRowAction } from '../reducers/types';
+import { TableRowProp } from '../types';
+import { prop } from '../utils';
 
 import { TableCell } from './Cell';
 
@@ -19,13 +22,29 @@ type TableRowProps<T> = {
   rowIndex: number;
   keyField?: string;
   row: T;
+  selected: boolean;
+  onSelectedRow: (action: SingleRowAction<T>) => void;
 };
 
-export function TableRow<T>({ columns, id, row, rowIndex }: TableRowProps<T>) {
-  const [selected, setSelected] = React.useState(false);
+export function TableRow<T>({
+  columns = [],
+  id,
+  row,
+  rowIndex,
+  keyField = 'id',
+  selected,
+  onSelectedRow = () => null,
+}: TableRowProps<T>) {
+  const rowKeyField = prop(row as TableRowProp, keyField);
   return (
     <TableRowStyle id={`row-${id}`} role="row">
-      <RowCheckbox name={`select-row-${rowIndex}`} selected={selected} setSelected={setSelected} />
+      <RowCheckbox
+        name={`select-row-${rowKeyField}`}
+        keyField={keyField}
+        row={row}
+        selected={selected}
+        onSelectedRow={onSelectedRow}
+      />
       {columns.map((column: any) => (
         <TableCell
           key={`cell-${column.id}`}

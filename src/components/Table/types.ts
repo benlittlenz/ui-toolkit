@@ -37,22 +37,13 @@ export type TableProps<T> = {
   paginationTotalRows?: number;
 };
 
-export type TableRow = Record<string, unknown>;
+export type TableRowProp = Record<string, unknown>;
 
-export type TableState = {
+export type TableState<T> = {
   currentPage: number;
   rowsPerPage: number;
+  selectedCount: number;
+  allSelected: boolean;
+  selectedRows: T[];
+  toggleOnSelectedRowsChange: boolean;
 };
-
-export interface PaginationPageAction {
-  type: 'CHANGE_PAGE';
-  page: number;
-}
-
-export interface PaginationRowsPerPageAction {
-  type: 'CHANGE_ROWS_PER_PAGE';
-  rowsPerPage: number;
-  page: number;
-}
-
-export type Action = PaginationRowsPerPageAction | PaginationPageAction;

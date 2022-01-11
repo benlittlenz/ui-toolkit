@@ -5,10 +5,11 @@ import { Column } from './Column';
 import { defaultProps } from './defaultProps';
 import { Header, HeaderRow } from './Header';
 import { Pagination } from './Pagination';
-import { tableReducer } from './reducer';
+import { tableReducer } from './reducers/reducer';
+import { Action, SingleRowAction } from './reducers/types';
 import { TableRow } from './Row';
 import { Table } from './Table';
-import { Action, TableProps, TableState } from './types';
+import { TableProps, TableState } from './types';
 import { getNumberOfPages } from './utils';
 
 export function DataTable<T>(props: TableProps<T>): JSX.Element {
@@ -30,9 +31,15 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     // paginationComponentOptions = defaultProps.paginationComponentOptions,
   } = props;
 
-  const [{ currentPage, rowsPerPage }, dispatch] = React.useReducer<
-    React.Reducer<TableState, Action>
+  const [{ selectedRows, currentPage, rowsPerPage }, dispatch] = React.useReducer<
+    React.Reducer<TableState<T>, Action<T>>
   >(tableReducer, {
+    // Checkbox
+    allSelected: false,
+    selectedCount: 0,
+    selectedRows: [],
+    toggleOnSelectedRowsChange: false,
+    // Pagination
     currentPage: paginationDefaultPage,
     rowsPerPage: paginationPerPage,
   });
@@ -73,6 +80,11 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
       page,
     });
   }, []);
+
+  const handleSelectedRow = React.useCallback((action: SingleRowAction<T>) => {
+    dispatch(action);
+  }, []);
+
   return (
     <div>
       <Table role="table">
@@ -85,6 +97,10 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
         </Header>
         <Body role="row-group">
           {tableRows.map((row, i) => {
+            console.log('ROW', row);
+            console.log('selectedRows', selectedRows);
+            const isRowSelected = selectedRows.some((r) => r === row);
+
             return (
               <TableRow
                 key={i}
@@ -93,6 +109,8 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
                 columns={columns}
                 row={row}
                 keyField={keyField}
+                selected={isRowSelected}
+                onSelectedRow={handleSelectedRow}
               />
             );
           })}
