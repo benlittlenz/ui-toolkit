@@ -3,6 +3,7 @@ import React from 'react';
 import { Body } from './Body';
 import { Column } from './Column';
 import { TableColumn } from './Column/types';
+import { defaultProps } from './defaultProps';
 import { Header, HeaderRow } from './Header';
 import { TableRow } from './Row';
 import { Table } from './Table';
@@ -15,7 +16,12 @@ type TableProps<T> = {
 
 type TableRow = Record<string, unknown>;
 
-export function DataTable<T>({ columns, data, keyField }: TableProps<T>): JSX.Element {
+export function DataTable<T>(props: TableProps<T>): JSX.Element {
+  const {
+    data = defaultProps.data,
+    columns = defaultProps.columns,
+    keyField = defaultProps.keyField,
+  } = props;
   const sortedData = React.useMemo(() => {
     return [...data].sort();
   }, [data]);
