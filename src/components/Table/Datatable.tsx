@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Body } from './Body';
 import { Column } from './Column';
@@ -8,6 +8,7 @@ import { Pagination } from './Pagination';
 import { TableRow } from './Row';
 import { Table } from './Table';
 import { TableProps } from './types';
+import { getNumberOfPages } from './utils';
 
 export function DataTable<T>(props: TableProps<T>): JSX.Element {
   const {
@@ -27,19 +28,36 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     // paginationComponent = defaultProps.paginationComponent,
     // paginationComponentOptions = defaultProps.paginationComponentOptions,
   } = props;
+
+  const [currentPage, setCurrentPage] = useState(paginationDefaultPage);
+  const [rowsPerPage, setRowsPerPage] = useState(paginationPerPage);
+
   const sortedData = React.useMemo(() => {
     return [...data].sort();
   }, [data]);
 
   const tableRows = React.useMemo(() => {
     if (pagination) {
-      const lastIndex = paginationDefaultPage * paginationPerPage;
-      const firstIndex = lastIndex - paginationPerPage;
+      const lastIndex = currentPage * rowsPerPage;
+      const firstIndex = lastIndex - rowsPerPage;
 
       return sortedData.slice(firstIndex, lastIndex);
     }
     return sortedData;
-  }, [sortedData, pagination, paginationDefaultPage, paginationPerPage]);
+  }, [sortedData, pagination, currentPage, rowsPerPage]);
+
+  const handleChangeRowsPerPage = React.useCallback(
+    (newRowsPerPage: number) => {
+      console.log('newRowsPerPage', newRowsPerPage);
+      const rowCount = tableRows.length;
+      const updatedPage = getNumberOfPages(rowCount, newRowsPerPage);
+      const recalculatedPage = Math.min(currentPage, updatedPage);
+
+      setCurrentPage(recalculatedPage);
+      setRowsPerPage(newRowsPerPage);
+    },
+    [currentPage, tableRows.length]
+  );
   return (
     <div>
       <Table role="table">
@@ -65,7 +83,13 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
           })}
         </Body>
       </Table>
-      {data.length > 0 && pagination && <Pagination />}
+      {data.length > 0 && pagination && (
+        <Pagination
+          currentPage={currentPage}
+          rowsPerPage={rowsPerPage}
+          onChangeRowsPerPage={handleChangeRowsPerPage}
+        />
+      )}
     </div>
   );
 }

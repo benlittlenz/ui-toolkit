@@ -14,7 +14,7 @@ export const defaultProps = {
   paginationDefaultPage: 1,
   paginationResetDefaultPage: false,
   paginationTotalRows: 0,
-  paginationPerPage: 10,
+  paginationPerPage: 5,
   paginationRowsPerPageOptions: [10, 15, 20, 25, 30],
   paginationComponent: null,
   paginationComponentOptions: {},
