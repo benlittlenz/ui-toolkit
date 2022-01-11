@@ -1,4 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
+
+import { RowCheckbox } from '../Checkbox/RowCheckbox';
 
 import { TableCell } from './Cell';
 
@@ -19,8 +22,10 @@ type TableRowProps<T> = {
 };
 
 export function TableRow<T>({ columns, id, row, rowIndex }: TableRowProps<T>) {
+  const [selected, setSelected] = React.useState(false);
   return (
     <TableRowStyle id={`row-${id}`} role="row">
+      <RowCheckbox name={`select-row-${rowIndex}`} selected={selected} setSelected={setSelected} />
       {columns.map((column: any) => (
         <TableCell
           key={`cell-${column.id}`}
