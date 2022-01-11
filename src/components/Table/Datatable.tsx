@@ -58,6 +58,10 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     },
     [currentPage, tableRows.length]
   );
+
+  const handlePageChange = React.useCallback((page: number) => {
+    setCurrentPage(page);
+  }, []);
   return (
     <div>
       <Table role="table">
@@ -88,6 +92,7 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
           currentPage={currentPage}
           rowsPerPage={rowsPerPage}
           rowCount={sortedData.length}
+          onPageChange={handlePageChange}
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       )}

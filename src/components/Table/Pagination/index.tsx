@@ -15,6 +15,7 @@ export function Pagination({
   paginationIconLastPage = defaultProps.paginationIconLastPage,
   paginationIconNext = defaultProps.paginationIconNext,
   paginationIconPrevious = defaultProps.paginationIconPrevious,
+  onPageChange = defaultProps.onChangePage,
   onChangeRowsPerPage,
 }: PaginationProps): JSX.Element {
   const lastIndex = currentPage * rowsPerPage;
@@ -22,12 +23,27 @@ export function Pagination({
   const numberOfPages = getNumberOfPages(rowCount, rowsPerPage);
   const disabledLesser = currentPage === 1;
   const disabledGreater = currentPage === numberOfPages;
-  console.log('currentPage', currentPage);
-  console.log('numberOfPages', numberOfPages);
+
   const range =
     currentPage === numberOfPages
       ? `${currentPage} of ${numberOfPages}`
       : `${firstIndex} of ${rowCount}`;
+
+  const handlePrevious = React.useCallback(() => {
+    onPageChange(currentPage - 1);
+  }, [currentPage, onPageChange]);
+
+  const handleNext = React.useCallback(() => {
+    onPageChange(currentPage + 1);
+  }, [currentPage, onPageChange]);
+
+  const handleFirst = React.useCallback(() => {
+    onPageChange(1);
+  }, [onPageChange]);
+
+  const handleLast = React.useCallback(() => {
+    onPageChange(numberOfPages);
+  }, [numberOfPages, onPageChange]);
 
   const handleRowChange = React.useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -58,6 +74,7 @@ export function Pagination({
           aria-label="First Page"
           aria-disabled={disabledLesser}
           disabled={disabledLesser}
+          onClick={handleFirst}
         >
           {paginationIconFirstPage}
         </Button>
@@ -67,6 +84,7 @@ export function Pagination({
           aria-label="Next Page"
           aria-disabled={disabledLesser}
           disabled={disabledLesser}
+          onClick={handleNext}
         >
           {paginationIconNext}
         </Button>
@@ -75,7 +93,7 @@ export function Pagination({
           type="button"
           aria-label="Previous Page"
           aria-disabled={disabledGreater}
-          // onClick={handleNext}
+          onClick={handlePrevious}
           disabled={disabledGreater}
         >
           {paginationIconPrevious}
@@ -86,7 +104,7 @@ export function Pagination({
           type="button"
           aria-label="Last Page"
           aria-disabled={disabledGreater}
-          // onClick={handleNext}
+          onClick={handleLast}
           disabled={disabledGreater}
         >
           {paginationIconLastPage}

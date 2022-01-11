@@ -22,4 +22,5 @@ export const defaultProps = {
   paginationIconLastPage: <ChevronDoubleRightIcon style={{ height: '12px', width: '12px' }} />,
   paginationIconNext: <ChevronLeftIcon style={{ height: '12px', width: '12px' }} />,
   paginationIconPrevious: <ChevronRightIcon style={{ height: '12px', width: '12px' }} />,
+  onChangePage: () => null,
 };
