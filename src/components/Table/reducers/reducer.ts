@@ -50,7 +50,6 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
           toggleOnSelectedRowsChange,
         };
       }
-      console.log('selected', rowCount, state.selectedRows.length);
       // Append item to state.
       return {
         ...state,

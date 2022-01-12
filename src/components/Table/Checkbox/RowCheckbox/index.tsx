@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { SingleRowAction } from '../../reducers/types';
 import { CellBase } from '../../Row/styles';
+import { Checkbox } from '../Checkbox';
 
 const TableCellCheckboxStyle = styled(CellBase)`
   flex: 0 0 48px;
@@ -42,14 +43,7 @@ export function RowCheckbox<T>({
   };
   return (
     <TableCellCheckboxStyle onClick={(e: React.MouseEvent) => e.stopPropagation()}>
-      <input
-        type="checkbox"
-        name={name}
-        checked={selected}
-        aria-checked={selected}
-        onClick={handleRowSelect}
-        aria-label={name}
-      />
+      <Checkbox name={name} checked={selected} aria-checked={selected} onClick={handleRowSelect} />
     </TableCellCheckboxStyle>
   );
 }

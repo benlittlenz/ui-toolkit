@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { AllRowsAction } from '../../reducers/types';
 import { CellBase } from '../../Row/styles';
+import { Checkbox } from '../Checkbox';
 
 const ColumnStyle = styled(CellBase)`
   flex: 0 0 48px;
@@ -31,8 +32,8 @@ export function ColumnCheckbox<T>({ rows, allSelected, onSelectAllRows }: Column
   };
   return (
     <ColumnStyle onClick={(e: React.MouseEvent) => e.stopPropagation()}>
-      <input
-        type="checkbox"
+      <Checkbox
+        name="select-all-rows"
         checked={allSelected}
         aria-checked={allSelected}
         onClick={handleSelectAll}
