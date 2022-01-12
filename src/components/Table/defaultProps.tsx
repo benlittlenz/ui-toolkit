@@ -21,7 +21,7 @@ export const defaultProps = {
   paginationComponentOptions: {},
   paginationIconFirstPage: <ChevronDoubleLeftIcon style={{ height: '12px', width: '12px' }} />,
   paginationIconLastPage: <ChevronDoubleRightIcon style={{ height: '12px', width: '12px' }} />,
-  paginationIconNext: <ChevronLeftIcon style={{ height: '12px', width: '12px' }} />,
-  paginationIconPrevious: <ChevronRightIcon style={{ height: '12px', width: '12px' }} />,
+  paginationIconNext: <ChevronRightIcon style={{ height: '12px', width: '12px' }} />,
+  paginationIconPrevious: <ChevronLeftIcon style={{ height: '12px', width: '12px' }} />,
   onChangePage: () => null,
 };

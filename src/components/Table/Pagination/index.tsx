@@ -35,6 +35,7 @@ export function Pagination({
 
   const handleNext = React.useCallback(() => {
     onPageChange(currentPage + 1);
+    console.log('current page', currentPage);
   }, [currentPage, onPageChange]);
 
   const handleFirst = React.useCallback(() => {
@@ -80,24 +81,24 @@ export function Pagination({
           {paginationIconFirstPage}
         </Button>
         <Button
-          id="pagination-next-page"
-          type="button"
-          aria-label="Next Page"
-          aria-disabled={disabledLesser}
-          disabled={disabledLesser}
-          onClick={handleNext}
-        >
-          {paginationIconNext}
-        </Button>
-        <Button
           id="pagination-previous-page"
           type="button"
           aria-label="Previous Page"
-          aria-disabled={disabledGreater}
+          aria-disabled={disabledLesser}
           onClick={handlePrevious}
-          disabled={disabledGreater}
+          disabled={disabledLesser}
         >
           {paginationIconPrevious}
+        </Button>
+        <Button
+          id="pagination-next-page"
+          type="button"
+          aria-label="Next Page"
+          aria-disabled={disabledGreater}
+          disabled={disabledGreater}
+          onClick={handleNext}
+        >
+          {paginationIconNext}
         </Button>
 
         <Button
