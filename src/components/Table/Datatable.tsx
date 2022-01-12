@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { Body } from './Body';
+import { ColumnCheckbox } from './Checkbox/ColumnCheckbox';
 import { Column } from './Column';
 import { defaultProps } from './defaultProps';
 import { Header, HeaderRow } from './Header';
 import { Pagination } from './Pagination';
 import { tableReducer } from './reducers/reducer';
-import { Action, SingleRowAction } from './reducers/types';
+import { Action, AllRowsAction, SingleRowAction } from './reducers/types';
 import { TableRow } from './Row';
 import { Table } from './Table';
 import { TableProps, TableState } from './types';
@@ -32,7 +33,7 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     // paginationComponentOptions = defaultProps.paginationComponentOptions,
   } = props;
 
-  const [{ selectedRows, currentPage, rowsPerPage }, dispatch] = React.useReducer<
+  const [{ selectedRows, allSelected, currentPage, rowsPerPage }, dispatch] = React.useReducer<
     React.Reducer<TableState<T>, Action<T>>
   >(tableReducer, {
     // Checkbox
@@ -86,11 +87,21 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     dispatch(action);
   }, []);
 
+  const handleSelectAllRow = React.useCallback((action: AllRowsAction<T>) => {
+    dispatch(action);
+  }, []);
+
   return (
     <div>
       <Table role="table">
         <Header role="row-group">
           <HeaderRow role="row">
+            <ColumnCheckbox
+              allSelected={allSelected}
+              selectedRows={selectedRows}
+              onSelectAllRows={handleSelectAllRow}
+              rows={tableRows}
+            />
             {columns.map((column) => (
               <Column key={column.id} column={column} />
             ))}

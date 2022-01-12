@@ -50,12 +50,25 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
           toggleOnSelectedRowsChange,
         };
       }
+      console.log('selected', rowCount, state.selectedRows.length);
       // Append item to state.
       return {
         ...state,
         selectedCount: state.selectedRows.length + 1,
-        allSelected: state.selectedRows.length + 1 === rowCount,
+        allSelected: state.selectedRows.length === rowCount,
         selectedRows: insertItem(state.selectedRows, row),
+        toggleOnSelectedRowsChange,
+      };
+    }
+    case 'SELECT_ALL_ROWS': {
+      const { rows, rowCount } = action;
+      const allChecked = !state.allSelected;
+
+      return {
+        ...state,
+        allSelected: allChecked,
+        selectedCount: allChecked ? rowCount : 0,
+        selectedRows: allChecked ? rows : [],
         toggleOnSelectedRowsChange,
       };
     }

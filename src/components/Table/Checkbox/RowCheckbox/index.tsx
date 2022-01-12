@@ -45,8 +45,8 @@ export function RowCheckbox<T>({
       <input
         type="checkbox"
         name={name}
-        // checked={selected}
-        // aria-checked={selected}
+        checked={selected}
+        aria-checked={selected}
         onClick={handleRowSelect}
         aria-label={name}
       />

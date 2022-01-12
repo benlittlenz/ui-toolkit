@@ -18,4 +18,14 @@ export interface SingleRowAction<T> {
   singleSelect: boolean;
 }
 
-export type Action<T> = SingleRowAction<T> | PaginationRowsPerPageAction | PaginationPageAction;
+export interface AllRowsAction<T> {
+  type: 'SELECT_ALL_ROWS';
+  rows: T[];
+  rowCount: number;
+}
+
+export type Action<T> =
+  | SingleRowAction<T>
+  | AllRowsAction<T>
+  | PaginationRowsPerPageAction
+  | PaginationPageAction;
