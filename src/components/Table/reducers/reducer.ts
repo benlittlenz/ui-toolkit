@@ -39,7 +39,6 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
     }
     case 'SELECT_SINGLE_ROW': {
       const { row, isSelected, rowCount } = action;
-      console.log('isSelected', isSelected);
       // If row is selected, remove item from state.
       if (isSelected) {
         return {

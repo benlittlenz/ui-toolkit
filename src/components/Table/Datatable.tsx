@@ -62,7 +62,6 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
 
   const handleChangeRowsPerPage = React.useCallback(
     (newRowsPerPage: number) => {
-      console.log('newRowsPerPage', newRowsPerPage);
       const rowCount = tableRows.length;
       const updatedPage = getNumberOfPages(rowCount, newRowsPerPage);
       const recalculatedPage = Math.min(currentPage, updatedPage);
@@ -84,6 +83,7 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
   }, []);
 
   const handleSelectedRow = React.useCallback((action: SingleRowAction<T>) => {
+    console.log('single row select');
     dispatch(action);
   }, []);
 
@@ -109,8 +109,6 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
         </Header>
         <Body role="row-group">
           {tableRows.map((row, i) => {
-            console.log('ROW', row);
-            console.log('selectedRows', selectedRows);
             const isRowSelected = selectedRows.some((r) => r === row);
 
             return (
