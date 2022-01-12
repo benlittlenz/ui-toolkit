@@ -17,6 +17,7 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     data = defaultProps.data,
     columns = defaultProps.columns,
     keyField = defaultProps.keyField,
+    selectableRowsSingle = defaultProps.selectableRowsSingle,
     pagination = defaultProps.pagination,
     // paginationTotalRows = defaultProps.paginationTotalRows,
     paginationDefaultPage = defaultProps.paginationDefaultPage,
@@ -110,6 +111,7 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
                 row={row}
                 keyField={keyField}
                 selected={isRowSelected}
+                selectableRowsSingle={selectableRowsSingle}
                 onSelectedRow={handleSelectedRow}
               />
             );

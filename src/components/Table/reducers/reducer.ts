@@ -2,6 +2,21 @@ import { TableState } from '../types';
 
 import { Action } from './types';
 
+function removeItem<T>(array: T[] = [], item: T): T[] {
+  const arrCopy = [...array];
+
+  arrCopy.splice(
+    arrCopy.findIndex((a) => a === item),
+    1
+  );
+
+  return arrCopy;
+}
+
+function insertItem<T>(array: T[] = [], item: T, index = 0): T[] {
+  return [...array.slice(0, index), item, ...array.slice(index)];
+}
+
 export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableState<T> {
   const toggleOnSelectedRowsChange = !state.toggleOnSelectedRowsChange;
   switch (action.type) {
@@ -23,29 +38,25 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
       };
     }
     case 'SELECT_SINGLE_ROW': {
-      const { row, isSelected, singleSelect } = action;
-
-      if (singleSelect) {
-        if (isSelected) {
-          return {
-            ...state,
-            selectedCount: 0,
-            allSelected: false,
-            selectedRows: [],
-            toggleOnSelectedRowsChange,
-          };
-        }
+      const { row, isSelected, rowCount } = action;
+      console.log('isSelected', isSelected);
+      // If row is selected, remove item from state.
+      if (isSelected) {
         return {
           ...state,
-          selectedCount: 1,
+          selectedCount: state.selectedRows.length ? state.selectedRows.length - 1 : 0,
           allSelected: false,
-          selectedRows: [row],
+          selectedRows: removeItem(state.selectedRows, row),
           toggleOnSelectedRowsChange,
         };
       }
-
+      // Append item to state.
       return {
         ...state,
+        selectedCount: state.selectedRows.length + 1,
+        allSelected: state.selectedRows.length + 1 === rowCount,
+        selectedRows: insertItem(state.selectedRows, row),
+        toggleOnSelectedRowsChange,
       };
     }
   }

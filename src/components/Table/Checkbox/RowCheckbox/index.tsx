@@ -17,6 +17,7 @@ type RowCheckboxProps<T> = {
   name: string;
   keyField: string;
   selected: boolean;
+  selectableRowsSingle: boolean;
   onSelectedRow: (action: SingleRowAction<T>) => void;
   row: T;
 };
@@ -26,6 +27,7 @@ export function RowCheckbox<T>({
   keyField,
   row,
   selected,
+  selectableRowsSingle,
   onSelectedRow,
 }: RowCheckboxProps<T>): JSX.Element {
   const handleRowSelect = () => {
@@ -35,7 +37,7 @@ export function RowCheckbox<T>({
       row,
       rowCount: 1,
       isSelected: selected,
-      singleSelect: true,
+      singleSelect: selectableRowsSingle,
     });
   };
   return (

@@ -10,6 +10,7 @@ export const defaultProps = {
   data: [],
   title: '',
   keyField: 'id',
+  selectableRowsSingle: true,
   pagination: true,
   paginationDefaultPage: 1,
   paginationResetDefaultPage: false,

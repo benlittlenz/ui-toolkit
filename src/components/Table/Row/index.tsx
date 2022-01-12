@@ -23,6 +23,7 @@ type TableRowProps<T> = {
   keyField?: string;
   row: T;
   selected: boolean;
+  selectableRowsSingle: boolean;
   onSelectedRow: (action: SingleRowAction<T>) => void;
 };
 
@@ -33,6 +34,7 @@ export function TableRow<T>({
   rowIndex,
   keyField = 'id',
   selected,
+  selectableRowsSingle = false,
   onSelectedRow = () => null,
 }: TableRowProps<T>) {
   const rowKeyField = prop(row as TableRowProp, keyField);
@@ -44,6 +46,7 @@ export function TableRow<T>({
         row={row}
         selected={selected}
         onSelectedRow={onSelectedRow}
+        selectableRowsSingle={selectableRowsSingle}
       />
       {columns.map((column: any) => (
         <TableCell
