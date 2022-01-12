@@ -38,6 +38,7 @@ export function Pagination({
   }, [currentPage, onPageChange]);
 
   const handleFirst = React.useCallback(() => {
+    console.log('clicked!!!');
     onPageChange(1);
   }, [onPageChange]);
 

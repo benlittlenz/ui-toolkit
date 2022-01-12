@@ -26,6 +26,31 @@ const data = [
     title: 'Ghostbusters',
     year: '1984',
   },
+  {
+    id: 3,
+    title: 'Ghostbusters',
+    year: '1984',
+  },
+  {
+    id: 4,
+    title: 'Ghostbusters',
+    year: '1984',
+  },
+  {
+    id: 5,
+    title: 'Ghostbusters',
+    year: '1984',
+  },
+  {
+    id: 6,
+    title: 'Ghostbusters',
+    year: '1984',
+  },
+  {
+    id: 7,
+    title: 'Ghostbusters',
+    year: '1984',
+  },
 ];
 
 function App() {

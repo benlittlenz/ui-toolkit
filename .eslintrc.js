@@ -69,7 +69,8 @@ module.exports = {
         '@typescript-eslint/no-empty-function': ['off'],
         '@typescript-eslint/no-explicit-any': ['off'],
         'testing-library/no-debugging-utils': 'off',
-
+        'testing-library/no-node-access': 'off',
+        'testing-library/no-container': 'off',
         'prettier/prettier': ['error', { endOfLine: 'auto' }, { usePrettierrc: true }],
       },
     },

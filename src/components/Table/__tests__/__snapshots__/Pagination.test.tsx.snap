@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it should render with default props 1`] = `
+<nav
+  class="sc-dkPtRN gfGbEA"
+>
+  <div
+    class="sc-gsDKAQ jiKEFD"
+  >
+    <select
+      class="sc-bdvvtL cGpzzO"
+    >
+      <option
+        value="5"
+      >
+        5
+      </option>
+      <option
+        selected=""
+        value="10"
+      >
+        10
+      </option>
+      <option
+        value="25"
+      >
+        25
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+  <span
+    class="sc-jRQBWg sc-gKclnd fHFdDi jWkYZz"
+  >
+    1 of 40
+  </span>
+  <div
+    class="sc-hKwDye mvyID"
+  >
+    <button
+      aria-disabled="true"
+      aria-label="First Page"
+      class="sc-eCImPb fBSgP"
+      disabled=""
+      id="pagination-first-page"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        style="height: 12px; width: 12px;"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+    <button
+      aria-disabled="true"
+      aria-label="Next Page"
+      class="sc-eCImPb fBSgP"
+      disabled=""
+      id="pagination-next-page"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        style="height: 12px; width: 12px;"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+    <button
+      aria-disabled="false"
+      aria-label="Previous Page"
+      class="sc-eCImPb fBSgP"
+      id="pagination-previous-page"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        style="height: 12px; width: 12px;"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+    <button
+      aria-disabled="false"
+      aria-label="Last Page"
+      class="sc-eCImPb fBSgP"
+      id="pagination-last-page"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        style="height: 12px; width: 12px;"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</nav>
+`;
