@@ -1,5 +1,209 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Datatable columns it renders correctly with columns/data 1`] = `
+<div>
+  <div>
+    <div
+      class="sc-hBUSln isUOUn"
+      role="table"
+    >
+      <div
+        class="sc-gKclnd cFsFpL"
+        role="row-group"
+      >
+        <div
+          class="sc-iCfMLu hSbAuc"
+          role="row"
+        >
+          <div
+            class="sc-jRQBWg bwoBBf"
+          >
+            Name
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-bdvvtL hjGchb"
+        role="row-group"
+      >
+        <div
+          class="sc-ksdxgE inUDjc"
+          id="row-0"
+          role="row"
+        >
+          <div
+            class="sc-gsDKAQ sc-dkPtRN sc-hKwDye iigSTN juQwsB flAfZy"
+            id="cell-undefined"
+            role="grid-cell"
+          >
+            <div>
+              Apple
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-ksdxgE inUDjc"
+          id="row-1"
+          role="row"
+        >
+          <div
+            class="sc-gsDKAQ sc-dkPtRN sc-hKwDye iigSTN juQwsB flAfZy"
+            id="cell-undefined"
+            role="grid-cell"
+          >
+            <div>
+              Zuchinni
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav
+      class="sc-jrQzAO dZcCqi"
+    >
+      <div
+        class="sc-pVTFL gUaKsY"
+      >
+        <select
+          class="sc-furwcr biuCpP"
+        >
+          <option
+            selected=""
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="10"
+          >
+            10
+          </option>
+          <option
+            value="25"
+          >
+            25
+          </option>
+        </select>
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <span
+        class="sc-crHmcD sc-egiyK dOoxwS dIFsGL"
+      >
+        1 of 1
+      </span>
+      <div
+        class="sc-kDTinF jFDtol"
+      >
+        <button
+          aria-disabled="true"
+          aria-label="First Page"
+          class="sc-iqseJM jtEzsa"
+          disabled=""
+          id="pagination-first-page"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            style="height: 12px; width: 12px;"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button
+          aria-disabled="true"
+          aria-label="Previous Page"
+          class="sc-iqseJM jtEzsa"
+          disabled=""
+          id="pagination-previous-page"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            style="height: 12px; width: 12px;"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button
+          aria-disabled="true"
+          aria-label="Next Page"
+          class="sc-iqseJM jtEzsa"
+          disabled=""
+          id="pagination-next-page"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            style="height: 12px; width: 12px;"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button
+          aria-disabled="true"
+          aria-label="Last Page"
+          class="sc-iqseJM jtEzsa"
+          disabled=""
+          id="pagination-last-page"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            style="height: 12px; width: 12px;"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
+
 exports[`it should render an empty table 1`] = `
 <div>
   <div
@@ -60,6 +264,193 @@ exports[`it should render correctly with the selector function 1`] = `
         >
           <div>
             Joe Doe 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav
+    class="sc-jrQzAO dZcCqi"
+  >
+    <div
+      class="sc-pVTFL gUaKsY"
+    >
+      <select
+        class="sc-furwcr biuCpP"
+      >
+        <option
+          selected=""
+          value="5"
+        >
+          5
+        </option>
+        <option
+          value="10"
+        >
+          10
+        </option>
+        <option
+          value="25"
+        >
+          25
+        </option>
+      </select>
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <span
+      class="sc-crHmcD sc-egiyK dOoxwS dIFsGL"
+    >
+      1 of 1
+    </span>
+    <div
+      class="sc-kDTinF jFDtol"
+    >
+      <button
+        aria-disabled="true"
+        aria-label="First Page"
+        class="sc-iqseJM jtEzsa"
+        disabled=""
+        id="pagination-first-page"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          style="height: 12px; width: 12px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <button
+        aria-disabled="true"
+        aria-label="Previous Page"
+        class="sc-iqseJM jtEzsa"
+        disabled=""
+        id="pagination-previous-page"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          style="height: 12px; width: 12px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <button
+        aria-disabled="true"
+        aria-label="Next Page"
+        class="sc-iqseJM jtEzsa"
+        disabled=""
+        id="pagination-next-page"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          style="height: 12px; width: 12px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <button
+        aria-disabled="true"
+        aria-label="Last Page"
+        class="sc-iqseJM jtEzsa"
+        disabled=""
+        id="pagination-last-page"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          style="height: 12px; width: 12px;"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+            fill-rule="evenodd"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`it should update state when props change 1`] = `
+<div>
+  <div
+    class="sc-hBUSln isUOUn"
+    role="table"
+  >
+    <div
+      class="sc-gKclnd cFsFpL"
+      role="row-group"
+    >
+      <div
+        class="sc-iCfMLu hSbAuc"
+        role="row"
+      >
+        <div
+          class="sc-jRQBWg bwoBBf"
+        >
+          Name
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-bdvvtL hjGchb"
+      role="row-group"
+    >
+      <div
+        class="sc-ksdxgE inUDjc"
+        id="row-0"
+        role="row"
+      >
+        <div
+          class="sc-gsDKAQ sc-dkPtRN sc-hKwDye iigSTN juQwsB flAfZy"
+          id="cell-undefined"
+          role="grid-cell"
+        >
+          <div>
+            Something else
           </div>
         </div>
       </div>

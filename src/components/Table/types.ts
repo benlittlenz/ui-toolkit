@@ -1,5 +1,10 @@
 import { TableColumn } from './Column/types';
 
+export enum SortOrder {
+  ASC = 'asc',
+  DESC = 'desc',
+}
+
 export type PaginationChangePage = (page: number, totalRows: number) => void;
 export type PaginationChangeRowsPerPage = (currentRowsPerPage: number, currentPage: number) => void;
 export type PaginationComponentProps = {
@@ -53,4 +58,6 @@ export type TableState<T> = {
   allSelected: boolean;
   selectedRows: T[];
   toggleOnSelectedRowsChange: boolean;
+  sortDirection: SortOrder;
+  selectedColumn: TableColumn<T>;
 };

@@ -1,3 +1,6 @@
+import { TableColumn } from '../Column/types';
+import { SortOrder } from '../types';
+
 export interface PaginationPageAction {
   type: 'CHANGE_PAGE';
   page: number;
@@ -24,8 +27,15 @@ export interface AllRowsAction<T> {
   rowCount: number;
 }
 
+export interface SortAction<T> {
+  type: 'SORT_CHANGE';
+  sortDirection: SortOrder;
+  selectedColumn: TableColumn<T>;
+}
+
 export type Action<T> =
   | SingleRowAction<T>
   | AllRowsAction<T>
   | PaginationRowsPerPageAction
-  | PaginationPageAction;
+  | PaginationPageAction
+  | SortAction<T>;

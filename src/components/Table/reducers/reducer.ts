@@ -70,5 +70,16 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
         toggleOnSelectedRowsChange,
       };
     }
+
+    case 'SORT_CHANGE': {
+      const { sortDirection, selectedColumn } = action;
+      console.log('sort change', sortDirection, selectedColumn);
+      return {
+        ...state,
+        selectedColumn,
+        sortDirection,
+        currentPage: 1,
+      };
+    }
   }
 }

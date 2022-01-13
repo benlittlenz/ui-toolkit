@@ -7,11 +7,11 @@ import { defaultProps } from './defaultProps';
 import { Header, HeaderRow } from './Header';
 import { Pagination } from './Pagination';
 import { tableReducer } from './reducers/reducer';
-import { Action, AllRowsAction, SingleRowAction } from './reducers/types';
+import { Action, AllRowsAction, SingleRowAction, SortAction } from './reducers/types';
 import { TableRow } from './Row';
 import { Table } from './Table';
-import { TableProps, TableState } from './types';
-import { getNumberOfPages } from './utils';
+import { SortOrder, TableProps, TableState } from './types';
+import { getNumberOfPages, sort } from './utils';
 
 export function DataTable<T>(props: TableProps<T>): JSX.Element {
   const {
@@ -43,6 +43,8 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
       toggleOnSelectedRowsChange,
       currentPage,
       rowsPerPage,
+      selectedColumn,
+      sortDirection,
     },
     dispatch,
   ] = React.useReducer<React.Reducer<TableState<T>, Action<T>>>(tableReducer, {
@@ -54,15 +56,21 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     // Pagination
     currentPage: paginationDefaultPage,
     rowsPerPage: paginationPerPage,
+    // Sorting
+    selectedColumn: columns[0] || {},
+    sortDirection: SortOrder.ASC,
   });
 
   React.useEffect(() => {
     onSelectedRowsChange({ allSelected, selectedCount, selectedRows });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toggleOnSelectedRowsChange]);
 
   const sortedData = React.useMemo(() => {
-    return [...data].sort();
-  }, [data]);
+    // return [...data].sort();
+    console.log('COLUMN >>> ', selectedColumn);
+    return sort(data, sortDirection);
+  }, [sortDirection, selectedColumn, data]);
 
   const tableRows = React.useMemo(() => {
     if (pagination) {
@@ -105,6 +113,10 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     dispatch(action);
   }, []);
 
+  const handleSort = React.useCallback((action: SortAction<T>) => {
+    dispatch(action);
+  }, []);
+
   return (
     <div>
       <Table role="table">
@@ -120,7 +132,12 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
             )}
 
             {columns.map((column) => (
-              <Column key={column.id} column={column} />
+              <Column
+                key={column.id}
+                column={column}
+                sortDirection={sortDirection}
+                onSort={handleSort}
+              />
             ))}
           </HeaderRow>
         </Header>

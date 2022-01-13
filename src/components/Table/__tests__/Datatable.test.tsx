@@ -102,3 +102,21 @@ describe('onSelectedRowsChange method', () => {
     });
   });
 });
+
+test('it should update state when props change', () => {
+  const mock = dataMock();
+  const { container, rerender } = render(<DataTable data={mock.data} columns={mock.columns} />);
+
+  rerender(<DataTable data={[{ id: 3, name: 'Something else' }]} columns={mock.columns} />);
+
+  expect(container.firstChild).toMatchSnapshot();
+});
+
+describe('Datatable columns', () => {
+  test('it renders correctly with columns/data', () => {
+    const mock = dataMock();
+    const { container } = render(<DataTable data={mock.data} columns={mock.columns} />);
+
+    expect(container).toMatchSnapshot();
+  });
+});

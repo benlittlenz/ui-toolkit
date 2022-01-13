@@ -1,3 +1,6 @@
+import { SortAction } from '../reducers/types';
+import { SortOrder } from '../types';
+
 export type Primitive = string | number | boolean | bigint;
 export type Selector<T> = (row: T, rowIndex?: number) => Primitive;
 export type Format<T> = (row: T, rowIndex: number) => React.ReactNode;
@@ -21,4 +24,10 @@ export interface TableColumn<T> extends TableColumnBase {
 
 export type TableColumnProps<T> = {
   column: TableColumn<T>;
+  sortDirection: SortOrder;
+  onSort: (action: SortAction<T>) => void;
 };
+
+export interface ColumnSortableProps {
+  sortActive: boolean;
+}
