@@ -13,7 +13,6 @@ test('it should render with default props', () => {
       onChangeRowsPerPage={jest.fn()}
     />
   );
-  console.log(container.firstChild);
   expect(container.firstChild).toMatchSnapshot();
 });
 
@@ -118,7 +117,43 @@ describe('when clicking the last page', () => {
         />
       );
       userEvent.click(container.querySelector('button#pagination-next-page') as HTMLButtonElement);
+      expect(onChangePageMock).toHaveBeenCalledTimes(0);
+    });
+  });
 
+  describe('when clicking the prev page button', () => {
+    test('it should call onChangePage with correct args, when current page is greater than 1', () => {
+      const onChangePageMock = jest.fn();
+      const { container } = render(
+        <Pagination
+          currentPage={2}
+          rowsPerPage={10}
+          rowCount={40}
+          onPageChange={onChangePageMock}
+          onChangeRowsPerPage={jest.fn()}
+        />
+      );
+      userEvent.click(
+        container.querySelector('button#pagination-previous-page') as HTMLButtonElement
+      );
+
+      expect(onChangePageMock).toHaveBeenCalledTimes(1);
+    });
+
+    test('it should call onChangePage with correct args, when current page is 1', () => {
+      const onChangePageMock = jest.fn();
+      const { container } = render(
+        <Pagination
+          currentPage={1}
+          rowsPerPage={10}
+          rowCount={40}
+          onPageChange={onChangePageMock}
+          onChangeRowsPerPage={jest.fn()}
+        />
+      );
+      userEvent.click(
+        container.querySelector('button#pagination-previous-page') as HTMLButtonElement
+      );
       expect(onChangePageMock).toHaveBeenCalledTimes(0);
     });
   });

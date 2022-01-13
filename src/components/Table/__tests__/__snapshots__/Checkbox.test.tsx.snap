@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`it should handle onClick 1`] = `
-<div>
-  <input
-    aria-checked="false"
-    aria-label="test"
-    name="test"
-    type="checkbox"
-  />
-</div>
-`;
-
 exports[`it should render the checkbox component and matches the snapshot 1`] = `
 <div>
   <input
