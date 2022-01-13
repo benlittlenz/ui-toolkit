@@ -13,18 +13,7 @@ exports[`it should render an empty table 1`] = `
       <div
         class="sc-iCfMLu hSbAuc"
         role="row"
-      >
-        <div
-          class="sc-gsDKAQ sc-eCImPb iigSTN fsVpCF"
-        >
-          <input
-            aria-checked="false"
-            aria-label="select-all-rows"
-            name="select-all-rows"
-            type="checkbox"
-          />
-        </div>
-      </div>
+      />
     </div>
     <div
       class="sc-bdvvtL hjGchb"
@@ -49,16 +38,6 @@ exports[`it should render correctly with the selector function 1`] = `
         role="row"
       >
         <div
-          class="sc-gsDKAQ sc-eCImPb iigSTN fsVpCF"
-        >
-          <input
-            aria-checked="false"
-            aria-label="select-all-rows"
-            name="select-all-rows"
-            type="checkbox"
-          />
-        </div>
-        <div
           class="sc-jRQBWg bwoBBf"
         >
           Name
@@ -74,16 +53,6 @@ exports[`it should render correctly with the selector function 1`] = `
         id="row-0"
         role="row"
       >
-        <div
-          class="sc-gsDKAQ sc-bqiRlB iigSTN djFbJc"
-        >
-          <input
-            aria-checked="false"
-            aria-label="select-row-1"
-            name="select-row-1"
-            type="checkbox"
-          />
-        </div>
         <div
           class="sc-gsDKAQ sc-dkPtRN sc-hKwDye iigSTN juQwsB flAfZy"
           id="cell-undefined"

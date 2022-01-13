@@ -18,7 +18,9 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     data = defaultProps.data,
     columns = defaultProps.columns,
     keyField = defaultProps.keyField,
+    selectableRows = defaultProps.selectableRows,
     selectableRowsSingle = defaultProps.selectableRowsSingle,
+    onSelectedRowsChange = defaultProps.onSelectedRowsChange,
     pagination = defaultProps.pagination,
     // paginationTotalRows = defaultProps.paginationTotalRows,
     paginationDefaultPage = defaultProps.paginationDefaultPage,
@@ -33,9 +35,17 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     // paginationComponentOptions = defaultProps.paginationComponentOptions,
   } = props;
 
-  const [{ selectedRows, allSelected, currentPage, rowsPerPage }, dispatch] = React.useReducer<
-    React.Reducer<TableState<T>, Action<T>>
-  >(tableReducer, {
+  const [
+    {
+      selectedRows,
+      selectedCount,
+      allSelected,
+      toggleOnSelectedRowsChange,
+      currentPage,
+      rowsPerPage,
+    },
+    dispatch,
+  ] = React.useReducer<React.Reducer<TableState<T>, Action<T>>>(tableReducer, {
     // Checkbox
     allSelected: false,
     selectedCount: 0,
@@ -45,6 +55,10 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
     currentPage: paginationDefaultPage,
     rowsPerPage: paginationPerPage,
   });
+
+  React.useEffect(() => {
+    onSelectedRowsChange({ allSelected, selectedCount, selectedRows });
+  }, [toggleOnSelectedRowsChange]);
 
   const sortedData = React.useMemo(() => {
     return [...data].sort();
@@ -96,12 +110,15 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
       <Table role="table">
         <Header role="row-group">
           <HeaderRow role="row">
-            <ColumnCheckbox
-              allSelected={allSelected}
-              selectedRows={selectedRows}
-              onSelectAllRows={handleSelectAllRow}
-              rows={tableRows}
-            />
+            {selectableRows && (
+              <ColumnCheckbox
+                allSelected={allSelected}
+                selectedRows={selectedRows}
+                onSelectAllRows={handleSelectAllRow}
+                rows={tableRows}
+              />
+            )}
+
             {columns.map((column) => (
               <Column key={column.id} column={column} />
             ))}
@@ -120,6 +137,7 @@ export function DataTable<T>(props: TableProps<T>): JSX.Element {
                 row={row}
                 keyField={keyField}
                 selected={isRowSelected}
+                selectableRows={selectableRows}
                 selectableRowsSingle={selectableRowsSingle}
                 onSelectedRow={handleSelectedRow}
               />

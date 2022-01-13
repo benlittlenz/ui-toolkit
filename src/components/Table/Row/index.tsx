@@ -23,6 +23,7 @@ type TableRowProps<T> = {
   keyField?: string;
   row: T;
   selected: boolean;
+  selectableRows: boolean;
   selectableRowsSingle: boolean;
   onSelectedRow: (action: SingleRowAction<T>) => void;
 };
@@ -34,20 +35,23 @@ export function TableRow<T>({
   rowIndex,
   keyField = 'id',
   selected,
+  selectableRows = false,
   selectableRowsSingle = false,
   onSelectedRow = () => null,
 }: TableRowProps<T>) {
   const rowKeyField = prop(row as TableRowProp, keyField);
   return (
     <TableRowStyle id={`row-${id}`} role="row">
-      <RowCheckbox
-        name={`select-row-${rowKeyField}`}
-        keyField={keyField}
-        row={row}
-        selected={selected}
-        onSelectedRow={onSelectedRow}
-        selectableRowsSingle={selectableRowsSingle}
-      />
+      {selectableRows && (
+        <RowCheckbox
+          name={`select-row-${rowKeyField}`}
+          keyField={keyField}
+          row={row}
+          selected={selected}
+          onSelectedRow={onSelectedRow}
+          selectableRowsSingle={selectableRowsSingle}
+        />
+      )}
       {columns.map((column: any) => (
         <TableCell
           key={`cell-${column.id}`}

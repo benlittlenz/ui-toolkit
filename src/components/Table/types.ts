@@ -23,7 +23,13 @@ export type TableProps<T> = {
   columns: TableColumn<T>[];
   data: T[];
   keyField?: string;
+  selectableRows?: boolean;
   selectableRowsSingle?: boolean;
+  onSelectedRowsChange?: (selected: {
+    allSelected: boolean;
+    selectedCount: number;
+    selectedRows: T[];
+  }) => void;
   pagination?: boolean;
   paginationComponent?: PaginationComponent;
   paginationComponentOptions?: PaginationOptions;

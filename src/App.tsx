@@ -56,7 +56,12 @@ const data = [
 function App() {
   return (
     <div className="App">
-      <DataTable columns={columns} data={data} />
+      <DataTable
+        columns={columns}
+        data={data}
+        selectableRows
+        onSelectedRowsChange={(vals) => console.log(vals)}
+      />
     </div>
   );
 }

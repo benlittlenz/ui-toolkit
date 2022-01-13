@@ -2,6 +2,22 @@ import { render } from '@testing-library/react';
 
 import { DataTable } from '../Datatable';
 
+const dataMock = () => {
+  return {
+    columns: [{ name: 'Name', selector: (row: { name: string }) => row.name }],
+    data: [
+      {
+        id: 1,
+        name: 'Apple',
+      },
+      {
+        id: 2,
+        name: 'Zuchinni',
+      },
+    ],
+  };
+};
+
 test('it should render an empty table', () => {
   const { container } = render(<DataTable data={[]} columns={[]} />);
 
